@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+    <title>Digit Recognizer</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--CSS styling-->
+    <style>
+        .container {
+            margin-top: 5%;
+            margin-left: 20%;
+            padding: 50px;
+            background-color:blanchedalmond;
+        }
+
+        #title {
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .btn {
+            min-width: 120px;
+            border-radius: 30px;
+        }
+
+        #send {
+            margin-top: 30%;
+            width: 300px;
+        }
+
+        #send:active {
+            transform: translateY(2px);
+        }
+
+        #result {
+            margin-top: 30%;
+            font-size:xx-large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+
+  <body>
+    <div class="container shadow-lg">
+        <form class="row justify-content-center" action="/" method="POST" onsubmit="submitCanvas()">
+            
+            <div id="canvas" class="col-lg-6">
+                <h1 id="title">Digit Recognizer</h1>
+
+                <input type="hidden" id="canvasimg" name="canvasimg">
+                <input type="hidden" id="canvasdata" name="canvasdata" value="{{ canvasdata }}">
+                <canvas id="canvasbox" width="500px" height="500px" style="border:10px solid #000000;"></canvas>
+
+
+                <div class="tools">
+                    <button type="button" class="btn btn-primary btn-lg" id="draw" onclick="draw()">Draw</button>
+                    <button type="button" class="btn btn-secondary btn-lg" id="erase" onclick="erase()">Erase</button>
+                    <button type="button" class="btn btn-dark btn-lg float-right" id="clear">Clear</button>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <button class="btn btn-light btn-lg shadow" id="send" type="submit">Detect Digit</button>
+
+                {% if response %}
+                    <p id="result">Prediction Result : {{ response }}</p>
+                {% endif %} 
+            </div>
+        </form>
+    </div>
+    
+
+    <!--JavaScript-->
+    <script>
+        window.addEventListener('load', ()=>{
+            const canvas = document.querySelector('#canvasbox');
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            let radius = 12;
+            let drawing = false;
+
+            function drawOnCanvas(e) {
+                if (drawing){
+                    ctx.lineWidth = radius * 2;
+                    ctx.lineCap = 'round';
+                    ctx.fillStyle = "white";
+                    ctx.strokeStyle = "white";
+
+                    ctx.lineTo(e.offsetX, e.offsetY);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(e.offsetX, e.offsetY, radius, 0, 10);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(e.offsetX, e.offsetY);
+                }
+            }
+
+            function startPosition(e) {
+                drawing = true;
+                drawOnCanvas(e);
+            }
+
+            function endPosition() {
+                drawing = false;
+                ctx.beginPath();
+            }
+
+            canvas.addEventListener('mousemove', drawOnCanvas);
+            canvas.addEventListener('mousedown', startPosition);
+            canvas.addEventListener('mouseup', endPosition);
+
+
+            // Draw
+            const draw = document.querySelector('#draw');
+            draw.addEventListener('click', ()=>{
+                const canvas = document.querySelector('#canvasbox');
+                const ctx = canvas.getContext('2d');
+                ctx.filter = 'invert(0)';
+                radius = 12;
+            });
+
+            // Erase
+            const erase = document.querySelector('#erase');
+            erase.addEventListener('click', ()=>{
+                const canvas = document.querySelector('#canvasbox');
+                const ctx = canvas.getContext('2d');
+                ctx.filter = 'invert(1)';
+                radius = 25;
+            });
+
+            //Clear
+            const clear = document.querySelector('#clear');
+            clear.addEventListener('click', ()=>{
+                const canvas = document.querySelector('#canvasbox');
+                const ctx = canvas.getContext('2d');
+                ctx.filter = 'invert(0)';
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            });
+        });
+
+        
+        // Submit canvas
+        function submitCanvas() {
+            const canvas = document.querySelector('#canvasbox');
+            document.getElementById('canvasimg').value = canvas.toDataURL();
+        };
+        
+    </script>
+
+    <!--Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
