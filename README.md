@@ -23,7 +23,16 @@ Building a CNN from scratch takes an insane amount of work. Thankfully, the exis
 
 Below is the architecture of my CNN used for digit recognition:  
 
-
 <img src="https://user-images.githubusercontent.com/71620462/167315582-dc75ebde-a3bd-43cf-9be7-c535b3b84315.png" width="500" height="600">
+
+On top of the ideas introduced above, here are some other techniques used in my model:
+
+**Batch Normalization**:  
+When training a ML model, data is often grouped into batches. Batch normalization standardizes the inputs to a layer for each patch, and this stabilizes the training process, reducing the number of training epochs required.
+
+**Dropout Layer**:  
+The Dropout layer nullifies the contribution of some datapoints toward the next layer. This is crucial in preventing overfitting - the model fits the training data "too well" and becomes inaccurate when it encounters unseen data.
+
+
 
 
