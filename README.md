@@ -1,4 +1,4 @@
-# digit-recognizer
+# Handwritten Digit Recognizer
 
 Handwritten digit recognizer built using Keras and Tensorflow, and trained with 60,000 images from the MNIST dataset. Here, without getting too technical, I'll briefly explain my model and some of the techniques used to improve its accuracy.
 
@@ -9,4 +9,7 @@ Below is an examplar of the architecture of a CNN:
 
 ![source](https://miro.medium.com/max/1400/1*vkQ0hXDaQv57sALXAJquxA.jpeg)
 
+**Convolutional Layer**:
+Extract the feaures of the input image using a kernel, which takes in a section of an image and moves through the input image until every part of the image has been traversed. 
+![source](https://miro.medium.com/max/1052/1*GcI7G-JLAQiEoCON7xFbhg.gif)
 
