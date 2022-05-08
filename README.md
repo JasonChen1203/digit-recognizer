@@ -37,7 +37,10 @@ The Dropout layer nullifies the contribution of some datapoints toward the next 
 In the [Kaggle Competition in Digit Recognition](https://www.kaggle.com/competitions/digit-recognizer), my model is able to achieve a score of 0.99907, which ranks top 100 out of all the competing teams. 
 
 ## The Web App
-I decided to deploy my model using a web app. The frontend is handled using BootStrap and the backend is handled with Flask. Here's what it looks like:
+I decided to deploy my model using a web app. The frontend is handled using BootStrap and the backend is handled with Flask. Here's what it looks like in action:
+
+![digit_recognizer_sample_img](https://user-images.githubusercontent.com/71620462/167316590-ae5e3bbf-aa49-4b8d-b917-475357e86c56.png)
+
 
 
 
