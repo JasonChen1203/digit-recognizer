@@ -41,6 +41,8 @@ I decided to deploy my model using a web app. The frontend is handled using Boot
 
 ![digit_recognizer_sample_img](https://user-images.githubusercontent.com/71620462/167316590-ae5e3bbf-aa49-4b8d-b917-475357e86c56.png)
 
+One thing that I noticed while testing the product is that the model accuracy seems a bit lower compared to the score achieved in the Kaggle Competition. This is likely due to the fact that the Kaggle tests rarely contain rotated or weirdly-position images. An update/improvement on the rotational and positional invariance of the model may come in the future.
+
 
 
 
