@@ -30,7 +30,7 @@ On top of the ideas introduced above, here are some other techniques used in my 
 **Batch Normalization**:  
 When training a ML model, data is often grouped into batches. Batch normalization standardizes the inputs to a layer for each patch, and this stabilizes the training process, reducing the number of training epochs required.
 
-**Dropout Layer**:  
+**Dropout**:  
 The Dropout layer nullifies the contribution of some datapoints toward the next layer. This is crucial in preventing overfitting - the model fits the training data "too well" and becomes inaccurate when it encounters unseen data.
 
 
