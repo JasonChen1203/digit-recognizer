@@ -23,6 +23,7 @@ Building a CNN from scratch takes an insane amount of work. Thankfully, the exis
 
 Below is the architecture of my CNN used for digit recognition:  
 
-![](https://user-images.githubusercontent.com/71620462/167315582-dc75ebde-a3bd-43cf-9be7-c535b3b84315.png | height=100)
+
+<img src="https://user-images.githubusercontent.com/71620462/167315582-dc75ebde-a3bd-43cf-9be7-c535b3b84315.png" width="250" height="250">
 
 
