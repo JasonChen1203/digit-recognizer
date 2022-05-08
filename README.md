@@ -7,6 +7,6 @@ A convolutional neural network (CNN) is a class of neural network most often use
 
 Below is an examplar of the architecture of a CNN:
 
-![source](https://www.mathworks.com/videos/introduction-to-deep-learning-what-are-convolutional-neural-networks--1489512765771.html)
+![source](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
 
 
