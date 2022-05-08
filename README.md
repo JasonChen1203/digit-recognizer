@@ -15,6 +15,14 @@ This layer condenses the input image using a kernel/filter, which takes in a sec
 **Pooling Layer**:  
 This layer reduces the spatial size of the input image once again, and the purpose is to decrease the computional complexity. In my model and in most models used for digit recognition, max pooling is the preferred pooling method. Max pooling returns the maximum pixel value in the kernel as supposed to average pooling which takes the average of all pixel values inside the kernel. This is extremely useful in extracting dominant features and handling features that are rotated or in an unconventional position.
 
-**Flattening Layer**:
+**Flattening Layer**:  
 The input data needs to be 1-dimensional linear vector in order to be classified. The flattening layer converts the data into 1D arrays to be processed by the model.
+
+## My Model
+Building a CNN from scratch takes an insane amount of work. Thankfully, the existence of frameworks like Tensorflow and PyTorch makes that process a lot easier, and in the case of digit recognition, the programmer's main objective is to fine-tune the model to achieve the highest accuracy possible. 
+
+Below is the architecture of my CNN used for digit recognition:  
+
+![image](https://user-images.githubusercontent.com/71620462/167315582-dc75ebde-a3bd-43cf-9be7-c535b3b84315.png)
+
 
