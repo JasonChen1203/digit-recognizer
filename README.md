@@ -34,5 +34,11 @@ When training a ML model, data is often grouped into batches. Batch normalizatio
 The Dropout layer nullifies the contribution of some datapoints toward the next layer. This is crucial in preventing overfitting - the model fits the training data "too well" and becomes inaccurate when it encounters unseen data.
 
 
+In the [Kaggle Competition in Digit Recognition](https://www.kaggle.com/competitions/digit-recognizer), my model is able to achieve a score of 0.99907, which ranks top 100 out of all the competing teams. 
+
+## The Web App
+I decided to deploy my model using a web app. The frontend is handled using BootStrap and the backend is handled with Flask. Here's what it looks like:
+
+
 
 
