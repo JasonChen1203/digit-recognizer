@@ -5,4 +5,6 @@ Handwritten digit recognizer built using Keras and Tensorflow, and trained with 
 ## Convolutional Neural Network
 A convolutional neural network (CNN) is a class of neural network most often used in computer vision (i.e. interpreting & understanding the visual world, such as an image). An image can be broken down into a series of pixel values that indicates its colors and brightness, and we can use this to identify objects, and in our case, handwritten digits.__
 
+what
+
 
