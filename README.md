@@ -9,11 +9,9 @@ Below is an examplar of the architecture of a CNN:
 
 ![source](https://miro.medium.com/max/1400/1*vkQ0hXDaQv57sALXAJquxA.jpeg)
 
-**Convolutional Layer**:
-
+**Convolutional Layer**:  
 This layer condenses the input image using a kernel/filter, which takes in a section of an image and moves through the input image until every part of the image has been traversed. The point is to extract the features of the input image.
 
-**Pooling Layer**:
-
+**Pooling Layer**:  
 This layer reduces the spatial size of the input image once again, and the purpose is to decrease the computional complexity. In my model and in most models used for digit recognition, max pooling is the preferred pooling method. Max pooling returns the maximum pixel value in the kernel as supposed to average pooling which takes the average of all pixel values inside the kernel. This is extremely useful in extracting dominant features.
 
